@@ -44,8 +44,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MatematicaFinanceira.Lib, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MatematicaFinanceira.Lib.0.2.0.0\lib\net452\MatematicaFinanceira.Lib.dll</HintPath>
+    <Reference Include="MatematicaFinanceira.Lib, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MatematicaFinanceira.Lib.0.2.1.0\lib\net452\MatematicaFinanceira.Lib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

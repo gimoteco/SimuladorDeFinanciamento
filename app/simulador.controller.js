@@ -7,7 +7,7 @@ angular.module('app', []).controller('SimuladorController', function($http) {
       "&taxaDeJuros=" + parametrosDaSimulacao.taxaDeJuros +
       "&prazo=" + parametrosDaSimulacao.numeroDeParcelas;
 
-    $http.get('www.calculadoradefinanciamento.com.br/api/calcularParcelas' + parametros).then(function(resposta) {
+    $http.get('simuladordefinanciamento.azurewebsites.net/api/calcularParcelas' + parametros).then(function(resposta) {
         vm.parcelas = resposta.data;
     });
   };
