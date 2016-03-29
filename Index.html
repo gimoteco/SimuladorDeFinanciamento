@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="semantic/dist/semantic.min.css" rel="stylesheet" />
+</head>
+<body ng-app="app" ng-controller="SimuladorController as vm">
+  <div class="ui container">
+    <h1 class="ui center aligned header">Simulador de financiamento</h1>
+    <div class="ui ten column grid">
+      <div class="four wide column">
+        <form class="ui form">
+          <div class="field">
+            <label for="">Valor financiado (R$)</label>
+            <input placeholder="Valor financiado" type="number" >
+          </div>
+          <div class="field">
+            <label for="">Taxa de juros (%)</label>
+            <input placeholder="Taxa de juros" type="number" step="0.1">
+          </div>
+          <div class="field">
+            <label for="">Número de parcelas</label>
+            <input placeholder="Número de parcelas" type="number"  step="1" >
+          </div>
+          <div class="field">
+            <label for="">Sistema de amortização</label>
+            <select class="ui dropdown" name="" id="">
+              <option value="Price">Price</option>
+              <option value="SAC">Constante (SAC)</option>
+              <option value="SAM">Misto (SAM)</option>
+            </select>
+          </div>
+          <button ng-click="vm.simular({})" type="button" class="ui fluid primary button">
+            <i class="calculator icon"></i>
+            Calcular
+          </button>
+        </form>
+      </div>
+
+      <div class="twelve wide column">
+        <table class="ui table">
+          <thead>
+            <tr>
+              <th>Nº</th>
+              <th>Amortização</th>
+              <th>Juros</th>
+              <th>Parcela</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>1000,00</td>
+              <td>2000,00</td>
+              <td>3000,00</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>1000,00</td>
+              <td>2000,00</td>
+              <td>3000,00</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>1000,00</td>
+              <td>2000,00</td>
+              <td>3000,00</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>1000,00</td>
+              <td>2000,00</td>
+              <td>3000,00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <script src="bower_components/angular/angular.min.js" />
+  <script src="app/simulador.controller.js" />
+</body>
+</html>
