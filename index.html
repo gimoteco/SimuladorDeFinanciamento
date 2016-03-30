@@ -5,6 +5,8 @@
   <title></title>
   <link href="semantic/dist/semantic.min.css" rel="stylesheet" />
   <script src="js/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.3/angular-locale_pt-br.js"></script>
+  <script src="js/angular-input-masks-standalone.min.js"></script>
   <script src="app/simulador.controller.js"></script>
 </head>
 <body ng-app="app" ng-controller="SimuladorController as vm">
@@ -14,20 +16,21 @@
       <div class="six wide column">
         <form class="ui form">
           <div class="field">
-            <label for="">Valor financiado (R$)</label>
-            <input placeholder="Valor financiado" ng-model="parametrosDaSimulacao.saldoDevedor" type="number" >
+            <label for="">Valor financiado</label>
+            <input class="valor monetario" placeholder="0,00"  name="saldoDevedor" ng-model="parametrosDaSimulacao.saldoDevedor" ui-number-mask="2" type="text"></input>
           </div>
           <div class="field">
-            <label for="">Taxa de juros (%)</label>
-            <input placeholder="Taxa de juros" type="number" ng-model="parametrosDaSimulacao.taxaDeJuros" step="0.1">
+            <label for="">Taxa de juros por parcela (%)</label>
+            <input class="valor monetario" placeholder="0,00" type="text" ng-model="parametrosDaSimulacao.taxaDeJuros" ui-percentage-mask="2">
           </div>
           <div class="field">
             <label for="">Número de parcelas</label>
-            <input placeholder="Número de parcelas" type="number" ng-model="parametrosDaSimulacao.numeroDeParcelas" step="1" >
+            <input placeholder="Número de parcelas" type="text" ng-model="parametrosDaSimulacao.numeroDeParcelas" ui-number-mask="0">
           </div>
           <div class="field">
             <label for="">Sistema de amortização</label>
             <select class="ui dropdown" ng-model="parametrosDaSimulacao.sistemaDeAmortizacao" name="" id="">
+              <option value="">Selecione...</option>
               <option value="Price">Price</option>
               <option value="SAC">Constante (SAC)</option>
               <option value="SAM">Misto (SAM)</option>
@@ -72,6 +75,5 @@
         </table>
       </div>
   </div>
-
 </body>
 </html>
