@@ -4,41 +4,43 @@
   <meta charset="UTF-8">
   <title></title>
   <link href="semantic/dist/semantic.min.css" rel="stylesheet" />
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="app/simulador.controller.js"></script>
 </head>
 <body ng-app="app" ng-controller="SimuladorController as vm">
   <div class="ui container">
     <h1 class="ui center aligned header">Simulador de financiamento</h1>
     <div class="ui ten column grid">
-      <div class="four wide column">
+      <div class="six wide column">
         <form class="ui form">
           <div class="field">
             <label for="">Valor financiado (R$)</label>
-            <input placeholder="Valor financiado" type="number" >
+            <input placeholder="Valor financiado" ng-model="parametrosDaSimulacao.saldoDevedor" type="number" >
           </div>
           <div class="field">
             <label for="">Taxa de juros (%)</label>
-            <input placeholder="Taxa de juros" type="number" step="0.1">
+            <input placeholder="Taxa de juros" type="number" ng-model="parametrosDaSimulacao.taxaDeJuros" step="0.1">
           </div>
           <div class="field">
             <label for="">Número de parcelas</label>
-            <input placeholder="Número de parcelas" type="number"  step="1" >
+            <input placeholder="Número de parcelas" type="number" ng-model="parametrosDaSimulacao.numeroDeParcelas" step="1" >
           </div>
           <div class="field">
             <label for="">Sistema de amortização</label>
-            <select class="ui dropdown" name="" id="">
+            <select class="ui dropdown" ng-model="parametrosDaSimulacao.sistemaDeAmortizacao" name="" id="">
               <option value="Price">Price</option>
               <option value="SAC">Constante (SAC)</option>
               <option value="SAM">Misto (SAM)</option>
             </select>
           </div>
-          <button ng-click="vm.simular({})" type="button" class="ui fluid primary button">
+          <button ng-click="vm.simular(parametrosDaSimulacao)" type="button" class="ui fluid primary button">
             <i class="calculator icon"></i>
             Calcular
           </button>
         </form>
       </div>
 
-      <div class="twelve wide column">
+      <div class="ten wide column" ng-show="vm.parcelas.length > 0">
         <table class="ui table">
           <thead>
             <tr>
@@ -46,38 +48,21 @@
               <th>Amortização</th>
               <th>Juros</th>
               <th>Parcela</th>
+              <th>Saldo devedor</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>1000,00</td>
-              <td>2000,00</td>
-              <td>3000,00</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>1000,00</td>
-              <td>2000,00</td>
-              <td>3000,00</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>1000,00</td>
-              <td>2000,00</td>
-              <td>3000,00</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>1000,00</td>
-              <td>2000,00</td>
-              <td>3000,00</td>
+            <tr ng-repeat="parcela in vm.parcelas">
+              <td>Parcela {{ $index }}</td>
+              <td>{{ parcela.Amortizacao }}</td>
+              <td>{{ parcela.Juros }}</td>
+              <td>{{ parcela.Prestacao }}</td>
+              <td>{{ parcela.SaldoDevedor }}</td>
             </tr>
           </tbody>
         </table>
       </div>
   </div>
-  <script src="bower_components/angular/angular.min.js" />
-  <script src="app/simulador.controller.js" />
+
 </body>
 </html>

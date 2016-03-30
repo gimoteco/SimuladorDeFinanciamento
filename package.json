@@ -8,4 +8,7 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "semantic-ui": "^2.1.8"
+  }
 }

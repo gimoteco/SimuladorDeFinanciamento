@@ -668,6 +668,11 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
+
+body .ui.container {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
 /*!
  * # Semantic UI 2.1.8 - Button
  * http://github.com/semantic-org/semantic-ui/
