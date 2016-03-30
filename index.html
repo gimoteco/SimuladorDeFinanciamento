@@ -11,7 +11,7 @@
 </head>
 <body ng-app="app" ng-controller="SimuladorController as vm">
   <div class="ui container">
-    <h1 class="ui center aligned header">Simulador de financiamento</h1>
+    <h1 class="ui center aligned header">Calculadora de Financiamento</h1>
     <div class="ui ten column grid">
       <div class="six wide column">
         <form class="ui form">
@@ -44,31 +44,31 @@
       </div>
 
       <div class="ten wide column" ng-show="vm.parcelas.length > 0">
-        <table class="ui table">
+        <table class="ui selectable inverted table">
           <thead>
             <tr>
-              <th>Nº</th>
+              <th>Parcela</th>
               <th>Amortização</th>
               <th>Juros</th>
-              <th>Parcela</th>
+              <th>Valor da prestação</th>
               <th>Saldo devedor</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="parcela in vm.parcelas">
-              <td>Parcela {{ $index }}</td>
-              <td>{{ parcela.Amortizacao }}</td>
-              <td>{{ parcela.Juros }}</td>
-              <td>{{ parcela.Prestacao }}</td>
-              <td>{{ parcela.SaldoDevedor }}</td>
+              <td> {{ $index }}</td>
+              <td>{{ parcela.Amortizacao | currency : '' }}</td>
+              <td>{{ parcela.Juros | currency : '' }}</td>
+              <td>{{ parcela.Prestacao | currency : '' }}</td>
+              <td>{{ parcela.SaldoDevedor | currency : '' }}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <th></th>
-              <th>{{ vm.totais.Amortizacao }}</th>
-              <th>{{ vm.totais.Juros }}</th>
-              <th>{{ vm.totais.Prestacao }}</th>
+              <th><strong>Totais</strong></th>
+              <th>{{ vm.totais.Amortizacao | currency : '' }}</th>
+              <th>{{ vm.totais.Juros | currency : '' }}</th>
+              <th>{{ vm.totais.Prestacao | currency : '' }}</th>
               <th></th>
             </tr>
           </tfoot>
