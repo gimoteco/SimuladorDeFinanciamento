@@ -44,8 +44,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MatematicaFinanceira.Lib, Version=0.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MatematicaFinanceira.Lib.0.2.2.0\lib\net452\MatematicaFinanceira.Lib.dll</HintPath>
+    <Reference Include="MatematicaFinanceira.Lib, Version=0.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MatematicaFinanceira.Lib.0.2.3.0\lib\net452\MatematicaFinanceira.Lib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -210,6 +210,7 @@
     </Content>
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\simuladordefinanciamento %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\simuladordefinanciamento - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\simuladordefinanciamento.pubxml" />
   </ItemGroup>
   <PropertyGroup>
