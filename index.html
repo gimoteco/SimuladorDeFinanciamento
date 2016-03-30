@@ -10,70 +10,78 @@
   <script src="app/simulador.controller.js"></script>
 </head>
 <body ng-app="app" ng-controller="SimuladorController as vm">
-  <div class="ui container">
-    <h1 class="ui center aligned header">Calculadora de Financiamento</h1>
-    <div class="ui ten column grid">
-      <div class="six wide column">
-        <form class="ui form">
-          <div class="field">
-            <label for="">Valor financiado</label>
-            <input class="valor monetario" placeholder="0,00"  name="saldoDevedor" ng-model="parametrosDaSimulacao.saldoDevedor" ui-number-mask="2" type="text"></input>
-          </div>
-          <div class="field">
-            <label for="">Taxa de juros por parcela (%)</label>
-            <input class="valor monetario" placeholder="0,00" type="text" ng-model="parametrosDaSimulacao.taxaDeJuros" ui-percentage-mask="2">
-          </div>
-          <div class="field">
-            <label for="">Número de parcelas</label>
-            <input placeholder="Número de parcelas" type="text" ng-model="parametrosDaSimulacao.numeroDeParcelas" ui-number-mask="0">
-          </div>
-          <div class="field">
-            <label for="">Sistema de amortização</label>
-            <select class="ui dropdown" ng-model="parametrosDaSimulacao.sistemaDeAmortizacao" name="" id="">
-              <option value="">Selecione...</option>
-              <option value="Price">Price</option>
-              <option value="SAC">Constante (SAC)</option>
-              <option value="SAM">Misto (SAM)</option>
-            </select>
-          </div>
-          <button ng-click="vm.simular(parametrosDaSimulacao)" type="button" class="ui fluid primary button">
-            <i class="calculator icon"></i>
-            Calcular
-          </button>
-        </form>
-      </div>
 
-      <div class="ten wide column" ng-show="vm.parcelas.length > 0">
-        <table class="ui selectable inverted table">
-          <thead>
-            <tr>
-              <th>Parcela</th>
-              <th>Amortização</th>
-              <th>Juros</th>
-              <th>Valor da prestação</th>
-              <th>Saldo devedor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="parcela in vm.parcelas">
-              <td> {{ $index }}</td>
-              <td>{{ parcela.Amortizacao | currency : '' }}</td>
-              <td>{{ parcela.Juros | currency : '' }}</td>
-              <td>{{ parcela.Prestacao | currency : '' }}</td>
-              <td>{{ parcela.SaldoDevedor | currency : '' }}</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th><strong>Totais</strong></th>
-              <th>{{ vm.totais.Amortizacao | currency : '' }}</th>
-              <th>{{ vm.totais.Juros | currency : '' }}</th>
-              <th>{{ vm.totais.Prestacao | currency : '' }}</th>
-              <th></th>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+  <div class="ui centered grid container">
+    <div class="row">
+      <h1 class="ui header">Calculadora de Financiamento</h1>
+    </div>
+    <div class="four wide column">
+      <form class="ui segment form">
+        <div class="field">
+          <label for="">Valor financiado</label>
+          <input placeholder="0,00"  name="saldoDevedor" ng-model="parametrosDaSimulacao.saldoDevedor" ui-number-mask="2" type="text"></input>
+        </div>
+        <div class="field">
+          <label for="">Taxa de juros por parcela (%)</label>
+          <input placeholder="0,00" type="text" ng-model="parametrosDaSimulacao.taxaDeJuros" ui-percentage-mask="2">
+        </div>
+        <div class="field">
+          <label for="">Número de parcelas</label>
+          <input placeholder="Número de parcelas" type="text" ng-model="parametrosDaSimulacao.numeroDeParcelas" ui-number-mask="0">
+        </div>
+        <div class="field">
+          <label for="">Sistema de amortização</label>
+          <select class="ui dropdown" ng-model="parametrosDaSimulacao.sistemaDeAmortizacao" name="" id="">
+            <option value="">Selecione...</option>
+            <option value="Price">Price</option>
+            <option value="SAC">Constante (SAC)</option>
+            <option value="SAM">Misto (SAM)</option>
+          </select>
+        </div>
+        <button ng-click="vm.simular(parametrosDaSimulacao)" type="button" class="ui fluid primary button">
+          <i class="calculator icon"></i>
+          Calcular
+        </button>
+      </form>
+    </div>
+    <table ng-show="vm.parcelas.length > 0" class="ui selectable inverted segment table">
+      <thead>
+        <tr>
+          <th>Parcela</th>
+          <th>Amortização</th>
+          <th>Juros</th>
+          <th>Valor da prestação</th>
+          <th>Saldo devedor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="parcela in vm.parcelas">
+          <td> {{ $index }}</td>
+          <td>{{ parcela.Amortizacao | currency : '' }}</td>
+          <td>{{ parcela.Juros | currency : '' }}</td>
+          <td>{{ parcela.Prestacao | currency : '' }}</td>
+          <td>{{ parcela.SaldoDevedor | currency : '' }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th><strong>Totais</strong></th>
+          <th>{{ vm.totais.Amortizacao | currency : '' }}</th>
+          <th>{{ vm.totais.Juros | currency : '' }}</th>
+          <th>{{ vm.totais.Prestacao | currency : '' }}</th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="row">
+      <footer>
+        Trazido até você por
+        <a href="http://www.cafecombytes.org">
+          Café com Bytes
+        </a>
+      </footer>
+    </div>
   </div>
 </body>
 </html>
