@@ -6,14 +6,15 @@
   <meta name="description" content="Simule valores de parcelas para seu financiamento" />
   <meta name="robots" content="index,nofollow" />
   <link href="semantic/dist/semantic.min.css" rel="stylesheet" />
+  <link href="css/angular-block-ui.css" rel="stylesheet" />
   <script src="js/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.3/angular-locale_pt-br.js"></script>
   <script src="js/angular-input-masks-standalone.min.js"></script>
+  <script src="js/angular-block-ui.min.js"></script>
   <script src="app/simulador.controller.js"></script>
 </head>
-<body ng-app="app" ng-controller="SimuladorController as vm">
-
-  <div class="ui centered grid container">
+<body ng-app="app">
+  <div class="ui centered grid container" ng-controller="SimuladorController as vm">
     <div class="row">
       <h1 class="ui header">Calculadora de Financiamento</h1>
     </div>

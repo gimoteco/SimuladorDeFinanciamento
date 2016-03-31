@@ -1,4 +1,4 @@
-angular.module('app', ["ui.utils.masks"]).controller('SimuladorController', function($http, $scope) {
+angular.module('app', ["ui.utils.masks", "blockUI"]).controller('SimuladorController', function($http, $scope, blockUI) {
   var vm = this;
   vm.parcelas = [];
 
@@ -31,4 +31,12 @@ angular.module('app', ["ui.utils.masks"]).controller('SimuladorController', func
   }
 
   return vm;
+});
+
+
+angular.module('app').config(function(blockUIConfig) {
+  // Change the default overlay message
+  blockUIConfig.message = 'Calculando';
+  // Change the default delay to 100ms before the blocking is visible
+  blockUIConfig.delay = 100;
 });
