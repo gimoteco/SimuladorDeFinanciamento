@@ -12,9 +12,12 @@
   <script src="js/angular-input-masks-standalone.min.js"></script>
   <script src="js/angular-block-ui.min.js"></script>
   <script src="app/simulador.controller.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body ng-app="app">
   <div class="ui centered grid container" ng-controller="SimuladorController as vm">
+    <!-- Banner do calculadora de financiamento -->
+
     <div class="row">
       <h1 class="ui header">Calculadora de Financiamento</h1>
     </div>
@@ -46,6 +49,16 @@
           Calcular
         </button>
       </form>
+    </div>
+    <div class="row">
+      <!-- Banner 3 do cf -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-4723256231923602"
+           data-ad-slot="2346550384"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <table ng-show="vm.parcelas.length > 0" class="ui selectable inverted segment table">
       <thead>
@@ -85,8 +98,8 @@
         </a>
       </footer>
     </div>
-  </div>
 
+  </div>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -95,16 +108,6 @@
 
     ga('create', 'UA-72109700-2', 'auto');
     ga('send', 'pageview');
-  </script>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- Banner do calculadora de financiamento -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-4723256231923602"
-       data-ad-slot="1428220381"
-       data-ad-format="auto"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
 </body>
 </html>
