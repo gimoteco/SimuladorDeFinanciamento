@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Financiamento</title>
+  <meta name="description" content="Simule valores de parcelas para seu financiamento" />
+  <meta name="robots" content="index,nofollow" />
+  <link href="semantic/dist/semantic.min.css" rel="stylesheet" />
+  <link href="css/angular-block-ui.css" rel="stylesheet" />
+  <script src="js/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.3/angular-locale_pt-br.js"></script>
+  <script src="js/angular-input-masks-standalone.min.js"></script>
+  <script src="js/angular-block-ui.min.js"></script>
+  <script src="app/simulador.controller.js"></script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body ng-app="app">
+  <div class="ui centered grid container" ng-controller="SimuladorController as vm">
+    <!-- Banner do calculadora de financiamento -->
+
+    <div class="row">
+      <h1 class="ui header">Calculadora de Financiamento</h1>
+    </div>
+    <div class="six wide column">
+      <form class="ui segment form">
+        <div class="field">
+          <label for="">Valor financiado</label>
+          <input placeholder="0,00"  name="saldoDevedor" ng-model="parametrosDaSimulacao.saldoDevedor" ui-number-mask="2" type="text"></input>
+        </div>
+        <div class="field">
+          <label for="">Taxa de juros por parcela (%)</label>
+          <input placeholder="0,00" type="text" ng-model="parametrosDaSimulacao.taxaDeJuros" ui-percentage-mask="2">
+        </div>
+        <div class="field">
+          <label for="">Número de parcelas</label>
+          <input placeholder="Número de parcelas" type="text" ng-model="parametrosDaSimulacao.numeroDeParcelas" ui-number-mask="0">
+        </div>
+        <div class="field">
+          <label for="">Sistema de amortização</label>
+          <select class="ui dropdown" ng-model="parametrosDaSimulacao.sistemaDeAmortizacao" name="" id="">
+            <option value="">Selecione...</option>
+            <option value="Price">Price</option>
+            <option value="SAC">Constante (SAC)</option>
+            <option value="SAM">Misto (SAM)</option>
+          </select>
+        </div>
+        <button ng-click="vm.simular(parametrosDaSimulacao)" type="button" class="ui fluid primary button">
+          <i class="calculator icon"></i>
+          Calcular
+        </button>
+      </form>
+    </div>
+    <div class="row">
+      <!-- Banner 3 do cf -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-4723256231923602"
+           data-ad-slot="2346550384"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <table ng-show="vm.parcelas.length > 0" class="ui selectable inverted segment table">
+      <thead>
+        <tr>
+          <th>Parcela</th>
+          <th>Amortização</th>
+          <th>Juros</th>
+          <th>Valor da prestação</th>
+          <th>Saldo devedor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="parcela in vm.parcelas">
+          <td> {{ $index }}</td>
+          <td>{{ parcela.Amortizacao | currency : '' }}</td>
+          <td>{{ parcela.Juros | currency : '' }}</td>
+          <td>{{ parcela.Prestacao | currency : '' }}</td>
+          <td>{{ parcela.SaldoDevedor | currency : '' }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th><strong>Totais</strong></th>
+          <th>{{ vm.totais.Amortizacao | currency : '' }}</th>
+          <th>{{ vm.totais.Juros | currency : '' }}</th>
+          <th>{{ vm.totais.Prestacao | currency : '' }}</th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="row">
+      <footer>
+        Trazido até você por
+        <a title="Café com Bytes" href="http://www.cafecombytes.org">
+          Café com Bytes
+        </a>
+      </footer>
+    </div>
+
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72109700-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
