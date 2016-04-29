@@ -5,6 +5,7 @@ angular.module('app', ["ui.utils.masks", "blockUI"]).controller('SimuladorContro
   vm.simular = function(parametrosDaSimulacao) {
     var parametros = "?sistemaDeAmortizacao=" + parametrosDaSimulacao.sistemaDeAmortizacao +
       "&saldoDevedor=" + parametrosDaSimulacao.saldoDevedor +
+      "&entrada=" + parametrosDaSimulacao.entrada +
       "&taxaDeJuros=" + parametrosDaSimulacao.taxaDeJuros +
       "&prazo=" + parametrosDaSimulacao.numeroDeParcelas;
 
