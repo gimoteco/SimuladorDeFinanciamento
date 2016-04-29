@@ -210,6 +210,7 @@
     </Content>
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\simuladordefinanciamento %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\simuladordefinanciamento %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\simuladordefinanciamento - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\simuladordefinanciamento.pubxml" />
   </ItemGroup>
