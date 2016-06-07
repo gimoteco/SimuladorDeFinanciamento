@@ -12,8 +12,28 @@ angular.module('app', ["ui.utils.masks", "blockUI"]).controller('SimuladorContro
     $http.get('http://simuladordefinanciamento.azurewebsites.net/api/calcularParcelas' + parametros).then(function(resposta) {
         vm.parcelas = resposta.data;
         calcularValoresTotais(vm.parcelas);
+        desenharGrafico(vm.parcelas);
     });
   };
+
+  function desenharGrafico(parcelas) {
+    var dados = [['Parcela', 'Amortização', 'Juros', 'Saldo devedor']];
+
+    for (var i = 1; i < parcelas.length; i++) {
+      dados.push([i, parcelas[i].Amortizacao, parcelas[i].Juros, parcelas[i].SaldoDevedor]);
+    }
+
+    var data = google.visualization.arrayToDataTable(dados);
+
+    var options = {
+      title: 'Gráfico do Financiamento',
+      hAxis: {title: 'Nº da parcela'},
+      vAxis: {minValue: 0, title: 'Valor'}
+    };
+
+    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
 
   function calcularValoresTotais(parcelas) {
     var totais = {
@@ -22,7 +42,7 @@ angular.module('app', ["ui.utils.masks", "blockUI"]).controller('SimuladorContro
       Prestacao: 0
     };
 
-    for (var i = 0 ; i < parcelas.length ; i++) {
+    for (var i = 1 ; i < parcelas.length ; i++) {
       totais.Amortizacao += parcelas[i].Amortizacao;
       totais.Juros += parcelas[i].Juros;
       totais.Prestacao += parcelas[i].Prestacao;

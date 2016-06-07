@@ -13,11 +13,13 @@
   <script src="js/angular-block-ui.min.js"></script>
   <script src="app/simulador.controller.js"></script>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+    </script>
 </head>
 <body ng-app="app">
   <div class="ui centered grid container" ng-controller="SimuladorController as vm">
-    <!-- Banner do calculadora de financiamento -->
-
     <div class="row">
       <h1 class="ui header">Calculadora de Financiamento</h1>
     </div>
@@ -93,6 +95,8 @@
         </tr>
       </tfoot>
     </table>
+
+    <div id="chart_div" ng-show="vm.parcelas.length > 0" style="width: 800px; height: 500px;"></div>
 
     <div class="row">
       <footer>
